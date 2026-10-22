@@ -393,7 +393,7 @@ body{font-weight:700;letter-spacing:-.01em}
           <source media="(max-width: 700px)" id="heroMobile">
           <img id="heroImg" alt="Still from a film by Mattia Pierno" data-alt-en="Still from a film by Mattia Pierno" data-alt-it="Fotogramma da un film di Mattia Pierno" fetchpriority="high">
         </picture>
-        <video id="heroVid" muted loop playsinline autoplay preload="auto" aria-hidden="true" hidden></video>
+        <video id="heroVid" muted loop playsinline preload="auto" aria-hidden="true" hidden></video>
       </div>
       <p class="hero-title light display gut" aria-hidden="true">
         <span class="hl" data-split>Mattia</span>
@@ -528,13 +528,20 @@ body{font-weight:700;letter-spacing:-.01em}
     var S = B.S, DATA = B.DATA, FEAT = B.FEAT, $ = function(s){ return document.querySelector(s); };
     var setT = function(el, o){ if (!el) return; o = o || {}; el.setAttribute('data-en', o.en || ''); el.setAttribute('data-it', o.it || o.en || ''); el.textContent = o.en || ''; };
     if (S.hero) $('#heroImg').src = S.hero;
-    /* an optional silent MP4 replaces the opening photograph; the photo stays as its poster */
-    var hv = $('#heroVid');
-    if (S.heroVideo){
-      hv.muted = true; hv.defaultMuted = true; hv.src = S.heroVideo; if (S.hero) hv.poster = S.hero;
+    /* an optional silent MP4 replaces the opening photograph (a vertical one on phones); the photo stays as its
+       poster, and the video waits at its first frame until the opening animation hands over */
+    var hv = $('#heroVid'), phone = matchMedia('(max-width: 700px)').matches;
+    var vsrc = phone ? (S.heroVideoMobile || S.heroVideo) : S.heroVideo;
+    if (vsrc){
+      hv.muted = true; hv.defaultMuted = true; hv.src = vsrc;
+      var pst = phone ? (S.heroMobile || S.hero) : S.hero; if (pst) hv.poster = pst;
       hv.hidden = false; $('#heroImg').closest('picture').hidden = true;
-      var pl = hv.play(); if (pl && pl.catch) pl.catch(function(){});
     }
+    window.__heroPlay = function(){
+      if (hv.hidden) return;
+      try { hv.currentTime = 0; } catch (e) {}
+      var pl = hv.play(); if (pl && pl.catch) pl.catch(function(){});
+    };
     $('#heroMobile').srcset = S.heroMobile || S.hero || '';
     if (S.about) $('#aboutImg').src = S.about;
     setT($('#heroRole'), S.role);
@@ -817,6 +824,8 @@ body{font-weight:700;letter-spacing:-.01em}
     if (!proj.hidden && current >= 0) fillProject(current);
   }
   var langChosen, langReady = new Promise(function(r){ langChosen = r; });
+  /* without the opening animation the video simply starts once the language is chosen */
+  langReady.then(function(){ if (!motion && window.__heroPlay) window.__heroPlay(); });
   var gate = $('#langGate');
   var guess = (navigator.language || '').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
   setTimeout(function(){ var b = $('.lang-btn[data-lang="' + guess + '"]', gate); if (b) b.focus({preventScroll: true}); }, 60);
@@ -1291,6 +1300,7 @@ body{font-weight:700;letter-spacing:-.01em}
       .call(function(){ gsap.set(clapEl, {x: 0}); hit.style.visibility = 'hidden'; }, null, 2.39)
       .call(show(null), null, 2.65)
       /* straight after the clap, the first frame of the film comes up from black */
+      .call(function(){ window.__heroPlay && window.__heroPlay(); }, null, 2.73)
       .to(media, {autoAlpha: 1, duration: 1, ease: 'power2.inOut'}, 2.73)
       .to(img, {scale: 1, duration: 2.2, ease: 'expo.out'}, 2.73)
       .to(heroChars, {yPercent: 0, duration: 1.1, stagger: 0.028, ease: 'expo.out'}, 3.33)
