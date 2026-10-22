@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-21T08:00:00.000Z",
+ "updated": "2026-10-22T13:54:46.688Z",
  "projects": [
   {
    "id": "anema-mediterranea",
@@ -422,11 +422,11 @@
  ],
  "strip": {
   "featured": [
-   "anema-mediterranea",
    "out-of-place",
-   "l-ultima-nota",
    "punk-ture",
-   "kreole"
+   "kreole",
+   "l-ultima-nota",
+   "anema-mediterranea"
   ],
   "tiles": [],
   "motion": {
@@ -558,8 +558,8 @@
   "email": "info@mattiapierno.it",
   "instagram": "mattiapierno",
   "youtube": "https://www.youtube.com/channel/UCtaydfWddkptCziPCE2vkRg",
-  "formspree": "",
+  "formspree": "https://formspree.io/f/mgaawnpg",
   "copyright": "© 2026 Mattia Pierno",
-  "heroVideo": ""
+  "heroVideo": "img/v/site/mvjlr9nf9lek.mp4"
  }
 }
