@@ -1,0 +1,564 @@
+{
+ "version": 1,
+ "updated": "2026-10-21T08:00:00.000Z",
+ "projects": [
+  {
+   "id": "anema-mediterranea",
+   "group": "Fashion film",
+   "name": "Anéma Mediterrànea",
+   "year": {
+    "en": "2025",
+    "it": "2025"
+   },
+   "tag": {
+    "en": "Fashion film · Yamamay \"Reload\"",
+    "it": "Fashion film · Yamamay \"Reload\""
+   },
+   "short": {
+    "en": "A fashion film for the Yamamay project \"Reload\", shot on a rocky shore by the sea.",
+    "it": "Fashion film per il progetto \"Reload\" di Yamamay, girato su una scogliera sul mare."
+   },
+   "desc": {
+    "en": "Fashion film for the Yamamay project \"Reload\", released in June 2025. It was shot at dusk on a rocky shore by the sea: the model wears a striped headscarf and a blue-and-white printed shirt, in blue light with prism reflections and motion blur.",
+    "it": "Fashion film per il progetto \"Reload\" di Yamamay, uscito a giugno 2025. È girato al tramonto su una scogliera sul mare: la modella indossa un foulard a righe in testa e una camicia stampata blu e bianca, con luce blu, riflessi di prisma e mosso."
+   },
+   "film": "https://www-ccv.adobe.io/v1/player/ccv/LNvCp2uXXwt/embed?bgcolor=%23000000&lazyLoading=true&api_key=BehancePro2View",
+   "duration": "1:03",
+   "credits": [
+    {
+     "role": "Directed by",
+     "name": "Mattia Pierno"
+    },
+    {
+     "role": "Designers",
+     "name": "Beatrice Carola, Elisa Vittorio, Nadia Cirillo, Genny Vinaccia"
+    },
+    {
+     "role": "Cinematographer",
+     "name": "Andrea Monsurrò"
+    },
+    {
+     "role": "Starring",
+     "name": "Paola Crescentini"
+    },
+    {
+     "role": "Make-up artist",
+     "name": "Giovanna De Clemente"
+    }
+   ],
+   "visible": true,
+   "images": [
+    {
+     "w": 1456,
+     "h": 818,
+     "src": "foto/anema-mediterranea/cover.jpg",
+     "m": "foto/anema-mediterranea/cover.jpg",
+     "g": "img/g/anema-mediterranea/cover.jpg",
+     "t": "img/t/anema-mediterranea/cover.jpg"
+    },
+    {
+     "w": 1456,
+     "h": 818,
+     "src": "foto/anema-mediterranea/f1.jpg",
+     "m": "foto/anema-mediterranea/f1.jpg",
+     "g": "img/g/anema-mediterranea/f1.jpg",
+     "t": "img/t/anema-mediterranea/f1.jpg"
+    },
+    {
+     "w": 1456,
+     "h": 818,
+     "src": "foto/anema-mediterranea/f2.jpg",
+     "m": "foto/anema-mediterranea/f2.jpg",
+     "g": "img/g/anema-mediterranea/f2.jpg",
+     "t": "img/t/anema-mediterranea/f2.jpg"
+    },
+    {
+     "w": 1456,
+     "h": 818,
+     "src": "foto/anema-mediterranea/f3.jpg",
+     "m": "foto/anema-mediterranea/f3.jpg",
+     "g": "img/g/anema-mediterranea/f3.jpg",
+     "t": "img/t/anema-mediterranea/f3.jpg"
+    }
+   ],
+   "cover": "foto/anema-mediterranea/cover.jpg"
+  },
+  {
+   "id": "out-of-place",
+   "group": "Fashion film",
+   "name": "Out of Place",
+   "year": {
+    "en": "",
+    "it": ""
+   },
+   "tag": {
+    "en": "Fashion film · Naples",
+    "it": "Fashion film · Napoli"
+   },
+   "short": {
+    "en": "The fashion film of the editorial Out of Place, shot in the alleys and street markets of Naples.",
+    "it": "Il fashion film dell'editoriale Out of Place, girato tra i vicoli e i mercati di Napoli."
+   },
+   "desc": {
+    "en": "Fashion film for Out of Place, an editorial project by photographer Paolo Scotto di Vettimo. It was shot in Naples: the model, in pink and yellow outfits, poses on the steps of the alleys, in front of fruit stalls and inside a shop with religious pictures on the walls.",
+    "it": "Fashion film per Out of Place, progetto editoriale del fotografo Paolo Scotto di Vettimo. È girato a Napoli: la modella, con abiti rosa e gialli, posa sulle scale dei vicoli, davanti ai banchi della frutta e dentro una bottega con santini appesi alle pareti."
+   },
+   "film": "https://www-ccv.adobe.io/v1/player/ccv/QekuZwzhf-W/embed?bgcolor=%23000000&lazyLoading=true&api_key=BehancePro2View",
+   "duration": "1:35",
+   "credits": [
+    {
+     "role": "Directed by",
+     "name": "Mattia Pierno"
+    },
+    {
+     "role": "Photographer & creative director",
+     "name": "Paolo Scotto di Vettimo"
+    },
+    {
+     "role": "Model",
+     "name": "Claudia Sodano"
+    },
+    {
+     "role": "Stylist",
+     "name": "Alessandra Aiello"
+    },
+    {
+     "role": "Make-up artist",
+     "name": "Gianluca Terracciano"
+    },
+    {
+     "role": "Light assistant",
+     "name": "Omar Necib"
+    },
+    {
+     "role": "Stylist assistant",
+     "name": "Francesca Aiello"
+    }
+   ],
+   "visible": true,
+   "images": [
+    {
+     "w": 1330,
+     "h": 887,
+     "src": "foto/out-of-place/cover.jpg",
+     "m": "foto/out-of-place/cover.jpg",
+     "g": "img/g/out-of-place/cover.jpg",
+     "t": "img/t/out-of-place/cover.jpg"
+    },
+    {
+     "w": 1330,
+     "h": 887,
+     "src": "foto/out-of-place/f1.jpg",
+     "m": "foto/out-of-place/f1.jpg",
+     "g": "img/g/out-of-place/f1.jpg",
+     "t": "img/t/out-of-place/f1.jpg"
+    },
+    {
+     "w": 1330,
+     "h": 887,
+     "src": "foto/out-of-place/f2.jpg",
+     "m": "foto/out-of-place/f2.jpg",
+     "g": "img/g/out-of-place/f2.jpg",
+     "t": "img/t/out-of-place/f2.jpg"
+    },
+    {
+     "w": 1330,
+     "h": 887,
+     "src": "foto/out-of-place/f3.jpg",
+     "m": "foto/out-of-place/f3.jpg",
+     "g": "img/g/out-of-place/f3.jpg",
+     "t": "img/t/out-of-place/f3.jpg"
+    },
+    {
+     "w": 1182,
+     "h": 887,
+     "src": "foto/out-of-place/f4.jpg",
+     "m": "foto/out-of-place/f4.jpg",
+     "g": "img/g/out-of-place/f4.jpg",
+     "t": "img/t/out-of-place/f4.jpg"
+    }
+   ],
+   "cover": "foto/out-of-place/cover.jpg"
+  },
+  {
+   "id": "l-ultima-nota",
+   "group": "Cinema",
+   "name": "L'Ultima Nota",
+   "year": {
+    "en": "",
+    "it": ""
+   },
+   "tag": {
+    "en": "Short film · Trailer",
+    "it": "Cortometraggio · Trailer"
+   },
+   "short": {
+    "en": "A short film produced by PICSEL. Here you can watch the trailer.",
+    "it": "Cortometraggio prodotto da PICSEL. Qui c'è il trailer."
+   },
+   "desc": {
+    "en": "Short film written and directed by Mattia Pierno, produced by PICSEL – Produzioni Indipendenti di Cinema Sociale e Libero. The trailer shows a girl playing the piano in a room lit by a lamp, and two friends sitting on a bed in a bedroom covered with posters and records.",
+    "it": "Cortometraggio di Mattia Pierno, prodotto da PICSEL – Produzioni Indipendenti di Cinema Sociale e Libero. Il trailer mostra una ragazza che suona il pianoforte in una stanza illuminata da una lampada, e due amiche sedute su un letto in una camera piena di poster e dischi."
+   },
+   "film": "https://www-ccv.adobe.io/v1/player/ccv/75ct_ztkD8z/embed?bgcolor=%23000000&lazyLoading=true&api_key=BehancePro2View",
+   "duration": "0:47",
+   "credits": [
+    {
+     "role": "Directed by",
+     "name": "Mattia Pierno"
+    },
+    {
+     "role": "Production",
+     "name": "PICSEL – Produzioni Indipendenti di Cinema Sociale e Libero"
+    }
+   ],
+   "visible": true,
+   "images": [
+    {
+     "w": 1434,
+     "h": 610,
+     "src": "foto/l-ultima-nota/cover.jpg",
+     "m": "foto/l-ultima-nota/cover.jpg",
+     "g": "img/g/l-ultima-nota/cover.jpg",
+     "t": "img/t/l-ultima-nota/cover.jpg"
+    },
+    {
+     "w": 1434,
+     "h": 610,
+     "src": "foto/l-ultima-nota/f1.jpg",
+     "m": "foto/l-ultima-nota/f1.jpg",
+     "g": "img/g/l-ultima-nota/f1.jpg",
+     "t": "img/t/l-ultima-nota/f1.jpg"
+    },
+    {
+     "w": 1434,
+     "h": 610,
+     "src": "foto/l-ultima-nota/f2.jpg",
+     "m": "foto/l-ultima-nota/f2.jpg",
+     "g": "img/g/l-ultima-nota/f2.jpg",
+     "t": "img/t/l-ultima-nota/f2.jpg"
+    },
+    {
+     "w": 1434,
+     "h": 610,
+     "src": "foto/l-ultima-nota/f3.jpg",
+     "m": "foto/l-ultima-nota/f3.jpg",
+     "g": "img/g/l-ultima-nota/f3.jpg",
+     "t": "img/t/l-ultima-nota/f3.jpg"
+    }
+   ],
+   "cover": "foto/l-ultima-nota/cover.jpg"
+  },
+  {
+   "id": "punk-ture",
+   "group": "Fashion film",
+   "name": "PUNK-TURE",
+   "year": {
+    "en": "",
+    "it": ""
+   },
+   "tag": {
+    "en": "Fashion film · Vanvitelli University",
+    "it": "Fashion film · Università Vanvitelli"
+   },
+   "short": {
+    "en": "A fashion film for the PUNK-TURE collection, shot in a storeroom and an underground garage.",
+    "it": "Fashion film per la collezione PUNK-TURE, girato in un deposito e in un garage sotterraneo."
+   },
+   "desc": {
+    "en": "Fashion film for the PUNK-TURE collection, made in the Fashion Design Lab II (Prof. Simona Ottieri) of the Fashion Design degree at the University of Campania \"Luigi Vanvitelli\". It was shot in a storeroom and in the corridors of an underground garage, with a pinstripe jacket and fringes.",
+    "it": "Fashion film per la collezione PUNK-TURE, nata nel Laboratorio di design per la moda II (Prof.ssa Simona Ottieri) del corso di Design per la Moda dell'Università della Campania \"Luigi Vanvitelli\". È girato in un deposito e nei corridoi di un garage sotterraneo, con una giacca gessata e frange."
+   },
+   "film": "https://www-ccv.adobe.io/v1/player/ccv/NrI_j-3t6SS/embed?bgcolor=%23000000&lazyLoading=true&api_key=BehancePro2View",
+   "duration": "0:56",
+   "credits": [
+    {
+     "role": "Directed by",
+     "name": "Mattia Pierno"
+    },
+    {
+     "role": "Designers",
+     "name": "Ilaria Michelino, Omar Necib, Alessia Rampini, Elisa Vittorio"
+    },
+    {
+     "role": "Model",
+     "name": "Rosaria Guarino"
+    },
+    {
+     "role": "Photographer",
+     "name": "Paolo Scotto di Vettimo"
+    },
+    {
+     "role": "Video assistant",
+     "name": "Andrea Monsurrò"
+    }
+   ],
+   "visible": true,
+   "images": [
+    {
+     "w": 1456,
+     "h": 818,
+     "src": "foto/punk-ture/cover.jpg",
+     "m": "foto/punk-ture/cover.jpg",
+     "g": "img/g/punk-ture/cover.jpg",
+     "t": "img/t/punk-ture/cover.jpg"
+    },
+    {
+     "w": 1456,
+     "h": 818,
+     "src": "foto/punk-ture/f1.jpg",
+     "m": "foto/punk-ture/f1.jpg",
+     "g": "img/g/punk-ture/f1.jpg",
+     "t": "img/t/punk-ture/f1.jpg"
+    },
+    {
+     "w": 1456,
+     "h": 818,
+     "src": "foto/punk-ture/f2.jpg",
+     "m": "foto/punk-ture/f2.jpg",
+     "g": "img/g/punk-ture/f2.jpg",
+     "t": "img/t/punk-ture/f2.jpg"
+    },
+    {
+     "w": 1456,
+     "h": 818,
+     "src": "foto/punk-ture/f3.jpg",
+     "m": "foto/punk-ture/f3.jpg",
+     "g": "img/g/punk-ture/f3.jpg",
+     "t": "img/t/punk-ture/f3.jpg"
+    },
+    {
+     "w": 1456,
+     "h": 818,
+     "src": "foto/punk-ture/f4.jpg",
+     "m": "foto/punk-ture/f4.jpg",
+     "g": "img/g/punk-ture/f4.jpg",
+     "t": "img/t/punk-ture/f4.jpg"
+    }
+   ],
+   "cover": "foto/punk-ture/cover.jpg"
+  },
+  {
+   "id": "kreole",
+   "group": "Fashion film",
+   "name": "Kreolè",
+   "year": {
+    "en": "",
+    "it": ""
+   },
+   "tag": {
+    "en": "Fashion film · Super Tailoring",
+    "it": "Fashion film · Super Tailoring"
+   },
+   "short": {
+    "en": "A fashion film for the Kreolè collection, shot among stone arches and an old aqueduct.",
+    "it": "Fashion film per la collezione Kreolè, girato tra archi in pietra e un vecchio acquedotto."
+   },
+   "desc": {
+    "en": "Fashion film for Kreolè, a collection from the \"Super Tailoring\" brief of the Fashion Design Lab II (Prof. Giuseppina Pirozzi) at the University of Campania \"Luigi Vanvitelli\". It was shot among stone arches and an old aqueduct, with an orange paisley print, a tailored waistcoat and a white shirt.",
+    "it": "Fashion film per Kreolè, collezione del tema \"Super Tailoring\" del Laboratorio di design per la moda II (Prof.ssa Giuseppina Pirozzi) all'Università della Campania \"Luigi Vanvitelli\". È girato tra archi in pietra e un vecchio acquedotto, con una stampa paisley arancione, un gilet sartoriale e una camicia bianca."
+   },
+   "film": "https://www-ccv.adobe.io/v1/player/ccv/GKNEmfcBi__/embed?bgcolor=%23000000&lazyLoading=true&api_key=BehancePro2View",
+   "duration": "1:00",
+   "credits": [
+    {
+     "role": "Directed by",
+     "name": "Mattia Pierno"
+    },
+    {
+     "role": "Designers",
+     "name": "Pia Maria Domenica Di Gennaro, Annalisa Bifulco, Gioia Napolitano, Morena Liscio, Fabiana Mambelli"
+    },
+    {
+     "role": "Model",
+     "name": "Gioia Napolitano"
+    },
+    {
+     "role": "Photographer",
+     "name": "Pia Maria Domenica Di Gennaro"
+    },
+    {
+     "role": "Assistant photographer",
+     "name": "Annalisa Bifulco"
+    }
+   ],
+   "visible": true,
+   "images": [
+    {
+     "w": 1456,
+     "h": 819,
+     "src": "foto/kreole/cover.jpg",
+     "m": "foto/kreole/cover.jpg",
+     "g": "img/g/kreole/cover.jpg",
+     "t": "img/t/kreole/cover.jpg"
+    },
+    {
+     "w": 1456,
+     "h": 819,
+     "src": "foto/kreole/f1.jpg",
+     "m": "foto/kreole/f1.jpg",
+     "g": "img/g/kreole/f1.jpg",
+     "t": "img/t/kreole/f1.jpg"
+    },
+    {
+     "w": 1456,
+     "h": 819,
+     "src": "foto/kreole/f2.jpg",
+     "m": "foto/kreole/f2.jpg",
+     "g": "img/g/kreole/f2.jpg",
+     "t": "img/t/kreole/f2.jpg"
+    },
+    {
+     "w": 1456,
+     "h": 819,
+     "src": "foto/kreole/f3.jpg",
+     "m": "foto/kreole/f3.jpg",
+     "g": "img/g/kreole/f3.jpg",
+     "t": "img/t/kreole/f3.jpg"
+    }
+   ],
+   "cover": "foto/kreole/cover.jpg"
+  }
+ ],
+ "strip": {
+  "featured": [
+   "anema-mediterranea",
+   "out-of-place",
+   "l-ultima-nota",
+   "punk-ture",
+   "kreole"
+  ],
+  "tiles": [],
+  "motion": {
+   "life": 1,
+   "rgb": 1,
+   "wave": 1,
+   "spin": 0,
+   "size": 1,
+   "scroll": 1.45,
+   "density": "media"
+  }
+ },
+ "site": {
+  "hero": "foto/site/hero.jpg",
+  "heroMobile": "foto/site/hero.jpg",
+  "about": "foto/site/about.jpg",
+  "role": {
+   "en": "Director · Filmmaker",
+   "it": "Regista · Filmmaker"
+  },
+  "place": {
+   "en": "Naples, IT",
+   "it": "Napoli, IT"
+  },
+  "intro": {
+   "en": "",
+   "it": ""
+  },
+  "statement": {
+   "en": "Director and filmmaker from Naples. Independent narrative cinema and fashion films.",
+   "it": "Regista e filmmaker di Napoli. Cinema narrativo indipendente e fashion film."
+  },
+  "p1": {
+   "en": "Born in Naples in 2004, he graduated in Film Directing in Rome and focused his research on intimate storytelling with a strong emotional impact.",
+   "it": "Nato a Napoli nel 2004, si è diplomato in Regia a Roma e ha concentrato la sua ricerca su storie intime e di forte impatto emotivo."
+  },
+  "p2": {
+   "en": "His work spans from independent narrative cinema to fashion films, with a refined visual language and atmospheric sound design.",
+   "it": "Il suo lavoro va dal cinema narrativo indipendente ai fashion film, con un linguaggio visivo curato e un sound design d'atmosfera."
+  },
+  "facts": [
+   {
+    "k": {
+     "en": "Based",
+     "it": "Base"
+    },
+    "v": {
+     "en": "Naples",
+     "it": "Napoli"
+    }
+   },
+   {
+    "k": {
+     "en": "Born",
+     "it": "Nato"
+    },
+    "v": {
+     "en": "2004",
+     "it": "2004"
+    }
+   },
+   {
+    "k": {
+     "en": "Studies",
+     "it": "Formazione"
+    },
+    "v": {
+     "en": "Film Directing, Rome",
+     "it": "Regia, Roma"
+    }
+   },
+   {
+    "k": {
+     "en": "Work",
+     "it": "Lavori"
+    },
+    "v": {
+     "en": "Fashion film · Cinema",
+     "it": "Fashion film · Cinema"
+    }
+   }
+  ],
+  "credits": [
+   {
+    "name": "Yamamay",
+    "what": {
+     "en": "Fashion film · \"Reload\"",
+     "it": "Fashion film · \"Reload\""
+    },
+    "proj": "anema-mediterranea",
+    "year": "2025"
+   },
+   {
+    "name": "Università Vanvitelli",
+    "what": {
+     "en": "Fashion film · Fashion Design",
+     "it": "Fashion film · Design per la Moda"
+    },
+    "proj": "punk-ture",
+    "year": ""
+   },
+   {
+    "name": "Università Vanvitelli",
+    "what": {
+     "en": "Fashion film · Fashion Design",
+     "it": "Fashion film · Design per la Moda"
+    },
+    "proj": "kreole",
+    "year": ""
+   },
+   {
+    "name": "PICSEL",
+    "what": {
+     "en": "Short film production",
+     "it": "Produzione cortometraggio"
+    },
+    "proj": "l-ultima-nota",
+    "year": ""
+   }
+  ],
+  "marquee": {
+   "en": "Let's work together",
+   "it": "Lavoriamo insieme"
+  },
+  "contactTitle": {
+   "en": "For films, projects and collaborations",
+   "it": "Per film, progetti e collaborazioni"
+  },
+  "email": "info@mattiapierno.it",
+  "instagram": "mattiapierno",
+  "youtube": "https://www.youtube.com/channel/UCtaydfWddkptCziPCE2vkRg",
+  "formspree": "",
+  "copyright": "© 2026 Mattia Pierno"
+ }
+}
