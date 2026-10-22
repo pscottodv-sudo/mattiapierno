@@ -461,6 +461,7 @@ function normalize(c){
   });
   ['role','place','intro','statement','p1','p2','marquee','contactTitle'].forEach(function(k){ c.site[k] = c.site[k] || {en: '', it: ''}; });
   c.site.facts = c.site.facts || []; c.site.credits = c.site.credits || [];
+  c.site.heroVideo = c.site.heroVideo || '';
   return c;
 }
 
@@ -488,6 +489,7 @@ function changes(){
   if (J(S.strip.featured) !== J(ORIG.strip.featured)) out.push(['Pellicola', 'film in primo piano']);
   if (J(S.strip.tiles) !== J(ORIG.strip.tiles)) out.push(['Pellicola', 'fotogrammi sulla pellicola']);
   if (J(S.strip.motion) !== J(ORIG.strip.motion)) out.push(['Pellicola', 'movimento']);
+  if (J(S.site.heroVideo || '') !== J(ORIG.site.heroVideo || '')) out.push(['Apertura', S.site.heroVideo ? 'video iniziale' : 'video tolto, torna la foto']);
   var sk = ['hero','heroMobile','about','role','place','intro','statement','p1','p2','facts','marquee'];
   if (sk.some(function(k){ return J(S.site[k]) !== J(ORIG.site[k]); })) out.push(['Testi e chi sono', 'modificati']);
   if (J(S.site.credits) !== J(ORIG.site.credits)) out.push(['Collaborazioni', 'modificate']);
@@ -778,7 +780,10 @@ function renderTexts(){
   var s = S.site;
   $('#textsPad').innerHTML = '<div style="display:flex;flex-direction:column;gap:10px"><h2 class="h2">Testi e chi sono</h2><p class="lead">I testi fissi del sito, in italiano e in inglese uno accanto all\'altro, e le foto di apertura.</p></div>' +
    '<div class="sec" style="border-top:0;padding-top:0"><div class="sec-h"><h3>Apertura</h3></div>' +
-     '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,220px))">' + imgSlot('Foto grande (computer)', 'hero', 'src') + imgSlot('Foto grande (telefono)', 'heroMobile', 'src') + '</div>' +
+     '<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,220px))">' + imgSlot('Foto grande (computer)', 'hero', 'src') + imgSlot('Foto grande (telefono)', 'heroMobile', 'src') +
+       '<div class="f"><span class="mono lab">Video al posto della foto</span><div class="ph" style="cursor:default;aspect-ratio:3/2">' + (s.heroVideo ? '<video src="' + esc(src(s.heroVideo)) + '" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:cover;display:block"></video>' : '<div class="ba-empty">Nessun video:<br>si vede la foto</div>') + '</div>' +
+       '<div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap"><button class="btn small" type="button" id="hvUp">' + (s.heroVideo ? 'Cambia video' : 'Carica MP4') + '</button>' + (s.heroVideo ? '<button class="btn small ghost" type="button" id="hvRm">Togli</button>' : '') + '</div></div></div>' +
+     '<p class="hint" style="margin:-4px 0 0">Il video parte da solo, senza audio e in loop, al posto della foto grande; la foto resta come primo fotogramma mentre il video carica. MP4 di pochi secondi, idealmente sotto i 15 MB (massimo 40 MB).</p>' +
      bilF('Ruolo, sotto il nome', 'role') + bilF('Città', 'place') + '</div>' +
    '<div class="sec"><div class="sec-h"><h3>Chi sono</h3></div>' +
      '<div style="display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:18px;align-items:start" class="aboutg">' + imgSlot('Foto', 'about', 'src') +
@@ -789,6 +794,14 @@ function renderTexts(){
   $$('[data-imgk]').forEach(function(b){ b.addEventListener('click', function(){ pick('image/*', false, function(files){
     addImages([files[0]], 'site', function(o){ s[b.dataset.imgk] = o[b.dataset.size]; }).then(function(n){ if (n){ $('#im_' + b.dataset.imgk).src = src(s[b.dataset.imgk]); dirty(); } });
   }); }); });
+  $('#hvUp').addEventListener('click', function(){ pick('video/mp4,video/quicktime,video/webm', false, function(files){
+    var f = files[0], mb = Math.round(f.size / 1048576 * 10) / 10;
+    if (mb > 40){ toast('Questo video pesa ' + mb + ' MB: esportalo sotto i 40 MB, meglio sotto i 15'); return; }
+    var ext = (f.name.match(/\.(mp4|mov|webm|m4v)$/i) || ['', 'mp4'])[1].toLowerCase(), path = 'img/v/site/' + stamp() + '.' + ext;
+    PEND[path] = f; URLS[path] = URL.createObjectURL(f); s.heroVideo = path;
+    renderTexts(); dirty(); toast(mb > 15 ? 'Video aggiunto (' + mb + ' MB: sul telefono può metterci un po\' a partire)' : 'Video aggiunto');
+  }); });
+  if ($('#hvRm')) $('#hvRm').addEventListener('click', function(){ s.heroVideo = ''; renderTexts(); dirty(); toast('Video tolto: torna la foto'); });
   renderFacts();
   $('#addFact').addEventListener('click', function(){ s.facts.push({k: {en: '', it: ''}, v: {en: '', it: ''}}); renderFacts(); dirty(); });
 }

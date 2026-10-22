@@ -73,7 +73,7 @@ html.proj-open .nav,html.arch-open .nav{visibility:hidden}
 .hero{position:relative;height:100svh;min-height:520px}
 .hero-frame{position:absolute;inset:0;overflow:hidden;z-index:1}
 .hero-media{position:absolute;inset:0;overflow:hidden;background:var(--void)}
-.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover;display:block}
 .hero-title{position:absolute;left:0;right:0;bottom:calc(20px + env(safe-area-inset-bottom, 0px));z-index:3;font-size:clamp(58px,13.4vw,236px);margin:0;pointer-events:none}
 .hero-title.ink{color:var(--ink);z-index:0}
 .hero-title.light{color:var(--on-photo)}
@@ -393,6 +393,7 @@ body{font-weight:700;letter-spacing:-.01em}
           <source media="(max-width: 700px)" id="heroMobile">
           <img id="heroImg" alt="Still from a film by Mattia Pierno" data-alt-en="Still from a film by Mattia Pierno" data-alt-it="Fotogramma da un film di Mattia Pierno" fetchpriority="high">
         </picture>
+        <video id="heroVid" muted loop playsinline autoplay preload="auto" aria-hidden="true" hidden></video>
       </div>
       <p class="hero-title light display gut" aria-hidden="true">
         <span class="hl" data-split>Mattia</span>
@@ -527,6 +528,13 @@ body{font-weight:700;letter-spacing:-.01em}
     var S = B.S, DATA = B.DATA, FEAT = B.FEAT, $ = function(s){ return document.querySelector(s); };
     var setT = function(el, o){ if (!el) return; o = o || {}; el.setAttribute('data-en', o.en || ''); el.setAttribute('data-it', o.it || o.en || ''); el.textContent = o.en || ''; };
     if (S.hero) $('#heroImg').src = S.hero;
+    /* an optional silent MP4 replaces the opening photograph; the photo stays as its poster */
+    var hv = $('#heroVid');
+    if (S.heroVideo){
+      hv.muted = true; hv.defaultMuted = true; hv.src = S.heroVideo; if (S.hero) hv.poster = S.hero;
+      hv.hidden = false; $('#heroImg').closest('picture').hidden = true;
+      var pl = hv.play(); if (pl && pl.catch) pl.catch(function(){});
+    }
     $('#heroMobile').srcset = S.heroMobile || S.hero || '';
     if (S.about) $('#aboutImg').src = S.about;
     setT($('#heroRole'), S.role);
@@ -1246,7 +1254,7 @@ body{font-weight:700;letter-spacing:-.01em}
   /* ---------- opening sequence ---------- */
   function intro(){
     var W = innerWidth, desk = W >= 768;
-    var media = $('.hero-media'), img = $('.hero-media img'), box = $('.intro-stack');
+    var media = $('.hero-media'), img = $('#heroVid:not([hidden])') || $('.hero-media img'), box = $('.intro-stack');
     box.style.setProperty('--la', Math.round(desk ? Math.min(W * 0.19, 300, innerHeight * 0.36) : W * 0.58) + 'px');
     /* each drawing appears on a hard cut and sketches itself in: solid strokes draw on, dashed guides follow */
     var show = function(sel){ return function(){
