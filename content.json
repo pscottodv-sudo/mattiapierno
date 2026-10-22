@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-22T13:54:46.688Z",
+ "updated": "2026-10-22T14:08:54.664Z",
  "projects": [
   {
    "id": "anema-mediterranea",
@@ -560,6 +560,7 @@
   "youtube": "https://www.youtube.com/channel/UCtaydfWddkptCziPCE2vkRg",
   "formspree": "https://formspree.io/f/mgaawnpg",
   "copyright": "© 2026 Mattia Pierno",
-  "heroVideo": "img/v/site/mvjlr9nf9lek.mp4"
+  "heroVideo": "img/v/site/mvjlr9nf9lek.mp4",
+  "heroVideoMobile": "img/v/site/mvjm9ameohth.mov"
  }
 }
