@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-09T17:13:42.909Z",
+ "updated": "2026-11-09T19:28:02.485Z",
  "projects": [
   {
    "id": "out-of-place",
@@ -57,47 +57,87 @@
    "visible": true,
    "images": [
     {
-     "w": 1182,
-     "h": 887,
-     "src": "foto/out-of-place/f4.jpg",
-     "m": "foto/out-of-place/f4.jpg",
-     "g": "img/g/out-of-place/f4.jpg",
-     "t": "img/t/out-of-place/f4.jpg"
+     "w": 1620,
+     "h": 1080,
+     "src": "foto/out-of-place/mw9nkahsihu2.jpg",
+     "m": "foto/out-of-place/mw9nkahsihu2.jpg",
+     "g": "img/g/out-of-place/mw9nkahsihu2.jpg",
+     "t": "img/t/out-of-place/mw9nkahsihu2.jpg"
     },
     {
-     "w": 1330,
-     "h": 887,
-     "src": "foto/out-of-place/cover.jpg",
-     "m": "foto/out-of-place/cover.jpg",
-     "g": "img/g/out-of-place/cover.jpg",
-     "t": "img/t/out-of-place/cover.jpg"
+     "w": 1620,
+     "h": 1080,
+     "src": "foto/out-of-place/mw9nka77fbw5.jpg",
+     "m": "foto/out-of-place/mw9nka77fbw5.jpg",
+     "g": "img/g/out-of-place/mw9nka77fbw5.jpg",
+     "t": "img/t/out-of-place/mw9nka77fbw5.jpg"
     },
     {
-     "w": 1330,
-     "h": 887,
-     "src": "foto/out-of-place/f1.jpg",
-     "m": "foto/out-of-place/f1.jpg",
-     "g": "img/g/out-of-place/f1.jpg",
-     "t": "img/t/out-of-place/f1.jpg"
+     "w": 1620,
+     "h": 1080,
+     "src": "foto/out-of-place/mw9nkalgwaal.jpg",
+     "m": "foto/out-of-place/mw9nkalgwaal.jpg",
+     "g": "img/g/out-of-place/mw9nkalgwaal.jpg",
+     "t": "img/t/out-of-place/mw9nkalgwaal.jpg"
     },
     {
-     "w": 1330,
-     "h": 887,
-     "src": "foto/out-of-place/f2.jpg",
-     "m": "foto/out-of-place/f2.jpg",
-     "g": "img/g/out-of-place/f2.jpg",
-     "t": "img/t/out-of-place/f2.jpg"
+     "w": 1620,
+     "h": 1080,
+     "src": "foto/out-of-place/mw9nkad8379w.jpg",
+     "m": "foto/out-of-place/mw9nkad8379w.jpg",
+     "g": "img/g/out-of-place/mw9nkad8379w.jpg",
+     "t": "img/t/out-of-place/mw9nkad8379w.jpg"
     },
     {
-     "w": 1330,
-     "h": 887,
-     "src": "foto/out-of-place/f3.jpg",
-     "m": "foto/out-of-place/f3.jpg",
-     "g": "img/g/out-of-place/f3.jpg",
-     "t": "img/t/out-of-place/f3.jpg"
+     "w": 1620,
+     "h": 1080,
+     "src": "foto/out-of-place/mw9nkazjfpfl.jpg",
+     "m": "foto/out-of-place/mw9nkazjfpfl.jpg",
+     "g": "img/g/out-of-place/mw9nkazjfpfl.jpg",
+     "t": "img/t/out-of-place/mw9nkazjfpfl.jpg"
+    },
+    {
+     "w": 1620,
+     "h": 1080,
+     "src": "foto/out-of-place/mw9nkaosqjg0.jpg",
+     "m": "foto/out-of-place/mw9nkaosqjg0.jpg",
+     "g": "img/g/out-of-place/mw9nkaosqjg0.jpg",
+     "t": "img/t/out-of-place/mw9nkaosqjg0.jpg"
+    },
+    {
+     "w": 1620,
+     "h": 1080,
+     "src": "foto/out-of-place/mw9nkas951st.jpg",
+     "m": "foto/out-of-place/mw9nkas951st.jpg",
+     "g": "img/g/out-of-place/mw9nkas951st.jpg",
+     "t": "img/t/out-of-place/mw9nkas951st.jpg"
+    },
+    {
+     "w": 1620,
+     "h": 1080,
+     "src": "foto/out-of-place/mw9nkb34fiju.jpg",
+     "m": "foto/out-of-place/mw9nkb34fiju.jpg",
+     "g": "img/g/out-of-place/mw9nkb34fiju.jpg",
+     "t": "img/t/out-of-place/mw9nkb34fiju.jpg"
+    },
+    {
+     "w": 1620,
+     "h": 1080,
+     "src": "foto/out-of-place/mw9nkavv2k5d.jpg",
+     "m": "foto/out-of-place/mw9nkavv2k5d.jpg",
+     "g": "img/g/out-of-place/mw9nkavv2k5d.jpg",
+     "t": "img/t/out-of-place/mw9nkavv2k5d.jpg"
+    },
+    {
+     "w": 1620,
+     "h": 1080,
+     "src": "foto/out-of-place/mw9nkb7myhxk.jpg",
+     "m": "foto/out-of-place/mw9nkb7myhxk.jpg",
+     "g": "img/g/out-of-place/mw9nkb7myhxk.jpg",
+     "t": "img/t/out-of-place/mw9nkb7myhxk.jpg"
     }
    ],
-   "cover": "foto/out-of-place/f4.jpg"
+   "cover": "foto/out-of-place/mw9nkahsihu2.jpg"
   },
   {
    "id": "punk-ture",
@@ -602,5 +642,17 @@
   "copyright": "© 2026 Mattia Pierno",
   "heroVideo": "img/v/site/mvjlr9nf9lek.mp4",
   "heroVideoMobile": "img/v/site/mvjm9ameohth.mov"
- }
+ },
+ "sections": [
+  {
+   "id": "Fashion film",
+   "en": "Fashion film",
+   "it": "Fashion film"
+  },
+  {
+   "id": "Cinema",
+   "en": "Cinema",
+   "it": "Cinema"
+  }
+ ]
 }
