@@ -423,11 +423,11 @@ body{font-weight:700;letter-spacing:-.01em}
 
   <section class="work" id="work" aria-labelledby="workTitle">
     <div class="work-pin">
-      <div class="work-head gut mono"><span id="workTitle" data-en="Fashion film · Cinema" data-it="Fashion film · Cinema">Fashion film · Cinema</span><span class="work-count" id="workCount"></span></div>
+      <div class="work-head gut mono"><span id="workTitle" data-secline data-en="Fashion film · Cinema" data-it="Fashion film · Cinema">Fashion film · Cinema</span><span class="work-count" id="workCount"></span></div>
       <canvas id="gl" aria-label="A strip of film frames running around; each film comes to the front in turn" data-aria-en="A strip of film frames running around; each film comes to the front in turn" data-aria-it="Una pellicola di fotogrammi che gira; ogni film viene in primo piano a turno"></canvas>
       <p class="work-intro mono" data-en="Scroll to run the film" data-it="Scorri per far girare la pellicola">Scroll to run the film</p>
       <div id="stage"></div>
-      <div class="work-end"><p class="mono" style="margin:0;color:var(--muted)" id="fourOf"></p><p class="display" style="margin:0" data-en="All films" data-it="Tutti i film">All films</p><button class="btn-view" type="button" data-archive><span data-en="Open the archive" data-it="Apri l&#x27;archivio">Open the archive</span> <span aria-hidden="true">→</span></button><p class="mono" style="margin:0;color:var(--muted)" data-en="Fashion film · Cinema" data-it="Fashion film · Cinema">Fashion film · Cinema</p></div>
+      <div class="work-end"><p class="mono" style="margin:0;color:var(--muted)" id="fourOf"></p><p class="display" style="margin:0" data-en="All films" data-it="Tutti i film">All films</p><button class="btn-view" type="button" data-archive><span data-en="Open the archive" data-it="Apri l&#x27;archivio">Open the archive</span> <span aria-hidden="true">→</span></button><p class="mono" style="margin:0;color:var(--muted)" data-secline data-en="Fashion film · Cinema" data-it="Fashion film · Cinema">Fashion film · Cinema</p></div>
       <p class="work-hint mono" data-en="Keep scrolling · one film at a time" data-it="Continua a scorrere · un film alla volta">Keep scrolling · one film at a time</p>
     </div>
     <div class="work-list gut">
@@ -498,10 +498,15 @@ body{font-weight:700;letter-spacing:-.01em}
     it: ['zero','uno','due','tre','quattro','cinque','sei','sette','otto','nove','dieci','undici','dodici','tredici','quattordici','quindici','sedici','diciassette','diciotto','diciannove','venti']};
   var word = function(l, n){ return WORDS[l][n] || String(n); };
   var cap1 = function(s){ return s.charAt(0).toUpperCase() + s.slice(1); };
-  var GROUPS = [['arch-fashion', 'Fashion film', 'Fashion film', 'Fashion film'], ['arch-cinema', 'Cinema', 'Cinema', 'Cinema']];
+  /* the archive sections come from content.json (editable in the panel); [anchor id, section id, EN name, IT name] */
+  var SECS0 = [{id: 'Fashion film', en: 'Fashion film', it: 'Fashion film'}, {id: 'Cinema', en: 'Cinema', it: 'Cinema'}];
+  var GROUPS = [], GROUP_EN = {}, GROUP_IT = {};
 
   function build(C){
     var all = C.projects || [], S = C.site || {}, SP = C.strip || {};
+    var secs0 = (C.sections && C.sections.length ? C.sections : SECS0).slice();
+    all.forEach(function(p){ if (p.group && !secs0.some(function(x){ return x.id === p.group; })) secs0.push({id: p.group, en: p.group, it: p.group}); });
+    GROUPS = secs0.map(function(x, i){ var en = x.en || x.it || x.id, it = x.it || en; GROUP_EN[x.id] = en; GROUP_IT[x.id] = it; return ['arch-' + i, x.id, en, it]; });
     var IMG = {};
     all.forEach(function(p){ (p.images || []).forEach(function(i){ IMG[i.src] = i; }); });
     var DATA = all.filter(function(p){ return p.visible !== false; }).map(function(p){
@@ -569,6 +574,9 @@ body{font-weight:700;letter-spacing:-.01em}
         '</div></section>';
     });
     $('#archTabs').innerHTML = tabs; $('#archSecs').innerHTML = secs;
+    var used = GROUPS.filter(function(g){ return DATA.some(function(d){ return d.group === g[1]; }); });
+    var secLine = {en: used.map(function(g){ return g[2]; }).join(' · '), it: used.map(function(g){ return g[3]; }).join(' · ')};
+    Array.prototype.forEach.call(document.querySelectorAll('[data-secline]'), function(e){ setT(e, secLine); });
     var names = {}; B.all.forEach(function(p){ names[p.id] = p.name; });
     $('#credits').innerHTML = (S.credits || []).map(function(c){
       return '<div class="c-row"><span class="c-name display" data-split>' + esc0(c.name) + '</span><span class="mono"' + A(c.what) + '>' + esc0((c.what || {}).en) + '</span><span class="mono">' + esc0(names[c.proj] || '') + '</span><span class="mono c-year">' + esc0(c.year) + '</span></div>'; }).join('');
@@ -624,9 +632,8 @@ body{font-weight:700;letter-spacing:-.01em}
   };
   TX.en.mq = (B.S.marquee || {}).en || TX.en.mq; TX.it.mq = (B.S.marquee || {}).it || (B.S.marquee || {}).en || TX.it.mq;
   var T = function(k){ return TX[LANG][k]; };
-  var GROUP_IT = {'Fashion film': 'Fashion film', 'Cinema': 'Cinema'};
   var L = function(p, f){
-    if (f === 'group') return LANG === 'it' ? (GROUP_IT[p.group] || p.group) : p.group;
+    if (f === 'group') return LANG === 'it' ? (GROUP_IT[p.group] || p.group) : (GROUP_EN[p.group] || p.group);
     return LANG === 'it' && p.it && p.it[f] != null ? p.it[f] : p[f];
   };
   var hooks = {};

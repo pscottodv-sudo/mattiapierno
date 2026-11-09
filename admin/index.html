@@ -281,10 +281,13 @@ html,body{overflow:hidden}
 .crow.film{grid-template-columns:20px minmax(0,1.3fr) minmax(0,1fr) minmax(0,.9fr) minmax(0,.9fr) minmax(0,1.2fr) 64px 32px}
 .crow.fact{grid-template-columns:20px repeat(4,minmax(0,1fr)) 32px}
 .crow.crd{grid-template-columns:20px minmax(0,1fr) minmax(0,1.6fr) 32px}
+.crow.sec{grid-template-columns:20px minmax(0,1fr) minmax(0,1fr) 70px 32px}
+.crow.sec .n{color:var(--muted);font-size:12.5px;text-align:right}
 @media (max-width:640px){
   .crow.film,.crow.fact{grid-template-columns:20px minmax(0,1fr) 32px}
   .crow.fact>*:nth-child(6){grid-area:x}
   .crow.crd{grid-template-columns:20px minmax(0,1fr) 32px}.crow.crd>*:nth-child(4){grid-area:x}
+  .crow.sec{grid-template-columns:20px minmax(0,1fr) 32px}.crow.sec .n{display:none}.crow.sec>*:nth-child(5){grid-area:x}
   .crow.film>*{grid-area:auto;grid-column:2}
   .crow.film>.grip{grid-column:1;grid-row:1}
   .crow.film>[data-rm]{grid-column:3;grid-row:1}
@@ -325,6 +328,7 @@ html,body{overflow:hidden}
     <div class="brand"><b>Mattia<br>Pierno</b><span class="mono muted">Pannello sito</span></div>
     <nav class="nav" aria-label="Sezioni">
       <button type="button" data-view="projects" aria-current="page">Film <span class="count" id="nProj"></span></button>
+      <button type="button" data-view="sections">Sezioni <span class="count" id="nSec"></span></button>
       <button type="button" data-view="sphere">Pellicola <span class="count" id="nFeat"></span></button>
       <button type="button" data-view="texts">Testi e chi sono</button>
       <button type="button" data-view="credits">Collaborazioni <span class="count" id="nCred"></span></button>
@@ -361,6 +365,16 @@ html,body{overflow:hidden}
       </div>
     </section>
 
+    <section class="view" id="v-sections" hidden>
+      <div class="pad">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <h2 class="h2">Sezioni</h2>
+          <p class="lead">Le sezioni in cui sono divisi i film nell'archivio del sito, dall'alto verso il basso. Il nome si può cambiare quando vuoi; una sezione senza film visibili non compare sul sito. Per toglierne una, sposta prima i suoi film in un'altra sezione.</p>
+        </div>
+        <div class="rows" id="secs"></div>
+        <div><button class="btn small" type="button" id="addSec">+ Aggiungi sezione</button></div>
+      </div>
+    </section>
     <section class="view" id="v-sphere" hidden><div class="pad" id="spherePad"></div></section>
     <section class="view" id="v-texts" hidden><div class="pad" id="textsPad"></div></section>
     <section class="view" id="v-credits" hidden>
@@ -402,7 +416,9 @@ var REPO_DEFAULT = 'pscottodv-sudo/mattiapierno', BRANCH = 'main';
 function repoName(){ try { return localStorage.getItem('mp-repo') || REPO_DEFAULT; } catch (e) { return REPO_DEFAULT; } }
 var API = 'https://api.github.com/repos/' + repoName();
 var SITE_ROOT = location.pathname.replace(/admin\/?(index\.html)?$/, '') || '/';
-var GROUPS = [['Fashion film','Fashion film'],['Cinema','Cinema']];
+/* archive sections live in content.json (S.sections); [id, name shown in the panel] */
+var SECS0 = [{id: 'Fashion film', en: 'Fashion film', it: 'Fashion film'}, {id: 'Cinema', en: 'Cinema', it: 'Cinema'}];
+function groups(){ return ((S && S.sections) || SECS0).map(function(x){ return [x.id, x.it || x.en || 'Nuova sezione']; }); }
 var MOTION0 = {life: 1, rgb: 1, wave: 1, spin: 0, size: 1, scroll: 1.45, density: 'media'};
 var $ = function(s, r){ return (r || document).querySelector(s); }, $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
@@ -462,6 +478,8 @@ function normalize(c){
   ['role','place','intro','statement','p1','p2','marquee','contactTitle'].forEach(function(k){ c.site[k] = c.site[k] || {en: '', it: ''}; });
   c.site.facts = c.site.facts || []; c.site.credits = c.site.credits || [];
   c.site.heroVideo = c.site.heroVideo || ''; c.site.heroVideoMobile = c.site.heroVideoMobile || '';
+  c.sections = (c.sections && c.sections.length) ? c.sections : JSON.parse(JSON.stringify(SECS0));
+  c.projects.forEach(function(p){ if (p.group && !c.sections.some(function(x){ return x.id === p.group; })) c.sections.push({id: p.group, en: p.group, it: p.group}); });
   return c;
 }
 
@@ -493,6 +511,7 @@ function changes(){
   if (J(S.site.heroVideoMobile || '') !== J(ORIG.site.heroVideoMobile || '')) out.push(['Apertura', S.site.heroVideoMobile ? 'video verticale' : 'video verticale tolto']);
   var sk = ['hero','heroMobile','about','role','place','intro','statement','p1','p2','facts','marquee'];
   if (sk.some(function(k){ return J(S.site[k]) !== J(ORIG.site[k]); })) out.push(['Testi e chi sono', 'modificati']);
+  if (J(S.sections) !== J(ORIG.sections)) out.push(['Sezioni', 'modificate']);
   if (J(S.site.credits) !== J(ORIG.site.credits)) out.push(['Collaborazioni', 'modificate']);
   if (['contactTitle','email','instagram','youtube','formspree','copyright'].some(function(k){ return J(S.site[k]) !== J(ORIG.site[k]); })) out.push(['Contatti', 'modificati']);
   return out;
@@ -601,11 +620,11 @@ function addImages(files, folder, each){
 function pick(accept, multiple, cb){ var i = document.createElement('input'); i.type = 'file'; i.accept = accept; i.multiple = !!multiple; i.addEventListener('change', function(){ if (i.files.length) cb(i.files); }); i.click(); }
 
 /* ---------- PROJECTS ---------- */
-function gname(g){ var x = GROUPS.filter(function(a){ return a[0] === g; })[0]; return x ? x[1] : g; }
+function gname(g){ var x = groups().filter(function(a){ return a[0] === g; })[0]; return x ? x[1] : g; }
 function renderList(){
   var q = ($('#q').value || '').toLowerCase();
   $('#nProj').textContent = S.projects.length;
-  $('#groups').innerHTML = GROUPS.map(function(g){
+  $('#groups').innerHTML = groups().map(function(g){
     var ps = S.projects.filter(function(p){ return p.group === g[0] && (!q || (p.name || '').toLowerCase().indexOf(q) >= 0); });
     return '<div class="group"><div class="group-h"><span class="mono">' + g[1] + '</span><span class="mono">' + ps.length + '</span></div>' +
       (ps.length ? ps.map(function(p){
@@ -633,7 +652,7 @@ function renderEditor(){
      '<div class="pv"><img id="pvImg" alt=""><div class="pv-t"><span class="mono muted" id="pvTag"></span><span class="t" id="pvName"></span><p id="pvShort"></p><span class="v" id="pvBtn"></span></div></div></div>' +
    '<div class="sec"><div class="sec-h"><h3>Informazioni</h3></div>' +
      '<div class="grid"><div class="f"><label class="mono" for="pName">Titolo (uguale in IT ed EN)</label><input class="inp" id="pName" data-k="name"></div>' +
-     '<div class="f"><label class="mono" for="pGroup">Categoria</label><select class="inp" id="pGroup" data-k="group">' + GROUPS.map(function(g){ return '<option value="' + g[0] + '">' + g[1] + '</option>'; }).join('') + '</select></div></div>' +
+     '<div class="f"><label class="mono" for="pGroup">Categoria</label><select class="inp" id="pGroup" data-k="group">' + groups().map(function(g){ return '<option value="' + g[0] + '">' + g[1] + '</option>'; }).join('') + '</select></div></div>' +
      bilF('Anno', 'year') + bilF('Etichetta', 'tag', {hint: 'Compare sopra il titolo e nell\'archivio. Es. "Fashion film · Napoli". L\'anno puoi lasciarlo vuoto.'}) +
      '<div class="switches"><label class="sw"><input type="checkbox" data-k="visible" id="pVis"><span>Visibile sul sito<small>Spento: resta qui ma sparisce dal sito</small></span></label>' +
      '<label class="sw"><input type="checkbox" id="pFeat"' + (fi >= 0 ? ' checked' : '') + '><span>Esce dalla pellicola<small id="featNote">' + (fi >= 0 ? 'Posizione ' + (fi + 1) + ' di ' + S.strip.featured.length : 'Fino a 6 film') + '</small></span></label></div></div>' +
@@ -719,7 +738,7 @@ $('#fileIn').addEventListener('change', function(e){ var p = P(cur); if (p) addT
 $('#q').addEventListener('input', renderList);
 $('#newProj').addEventListener('click', function(){
   var id = 'p' + stamp();
-  S.projects.unshift({id: id, group: 'Fashion film', name: '', visible: false, year: {en: String(new Date().getFullYear()), it: String(new Date().getFullYear())}, tag: {en: '', it: ''}, short: {en: '', it: ''}, desc: {en: '', it: ''}, cover: '', images: [], film: '', duration: '', credits: [{role: 'Directed by', name: 'Mattia Pierno'}]});
+  S.projects.unshift({id: id, group: groups()[0][0], name: '', visible: false, year: {en: String(new Date().getFullYear()), it: String(new Date().getFullYear())}, tag: {en: '', it: ''}, short: {en: '', it: ''}, desc: {en: '', it: ''}, cover: '', images: [], film: '', duration: '', credits: [{role: 'Directed by', name: 'Mattia Pierno'}]});
   cur = id; renderList(); renderEditor(); $('#split').classList.add('editing'); $('#pName').focus(); dirty();
   toast('Nuovo progetto: resta nascosto finché non accendi "Visibile sul sito"');
 });
@@ -738,7 +757,7 @@ function renderSphere(){
   $('#nFeat').textContent = F.length;
   var manual = S.strip.tiles.length > 0;
   var vis = S.projects.filter(function(p){ return p.visible !== false && p.images.length; });
-  var opts = function(sel){ return GROUPS.map(function(g){ return '<optgroup label="' + g[1] + '">' + S.projects.filter(function(p){ return p.group === g[0] && p.visible !== false; }).map(function(p){ return '<option value="' + p.id + '"' + (p.id === sel ? ' selected' : '') + '>' + esc(p.name || 'Senza titolo') + '</option>'; }).join('') + '</optgroup>'; }).join(''); };
+  var opts = function(sel){ return groups().map(function(g){ return '<optgroup label="' + g[1] + '">' + S.projects.filter(function(p){ return p.group === g[0] && p.visible !== false; }).map(function(p){ return '<option value="' + p.id + '"' + (p.id === sel ? ' selected' : '') + '>' + esc(p.name || 'Senza titolo') + '</option>'; }).join('') + '</optgroup>'; }).join(''); };
   $('#spherePad').innerHTML =
    '<div style="display:flex;flex-direction:column;gap:10px"><h2 class="h2">Pellicola</h2><p class="lead">Quali film escono dalla pellicola, quali fotogrammi ci sono sopra e come si muove. Premi "Anteprima" per vederla con le modifiche prima di pubblicare.</p></div>' +
    '<div class="sec" style="border-top:0;padding-top:0"><div class="sec-h"><h3>Film che escono, in ordine (' + F.length + ')</h3><span class="hint">Da 1 a 6, di qualsiasi categoria. Trascina per riordinare.</span></div><div class="slots" id="slots">' +
@@ -831,6 +850,25 @@ function renderCreds(){
 }
 $('#addCred').addEventListener('click', function(){ S.site.credits.push({name: '', what: {en: '', it: ''}, proj: '', year: String(new Date().getFullYear())}); renderCreds(); dirty(); var r = $$('#creds .crow[data-i]'); r[r.length - 1].querySelector('input').focus(); });
 
+/* ---------- SECTIONS ---------- */
+function renderSecs(){
+  var X = S.sections, box = $('#secs'); $('#nSec').textContent = X.length;
+  var count = function(id){ return S.projects.filter(function(p){ return p.group === id; }).length; };
+  box.innerHTML = '<div class="crow crow-h mono sec"><span></span><span>Nome · IT</span><span>Nome · EN</span><span style="text-align:right">Film</span><span></span></div>' +
+    X.map(function(x, i){ var n = count(x.id); return '<div class="crow sec" data-i="' + i + '"><span class="grip">⋮⋮</span><input class="inp" data-k="it" aria-label="Nome in italiano" placeholder="es. Videoclip"><input class="inp" data-k="en" aria-label="Nome in inglese" placeholder="es. Music videos"><span class="n">' + n + (n === 1 ? ' film' : ' film') + '</span><button class="ic" type="button" data-rm aria-label="Rimuovi">✕</button></div>'; }).join('');
+  $$('.crow.sec[data-i]', box).forEach(function(r){
+    var x = X[+r.dataset.i]; bind(r, x);
+    r.querySelector('[data-rm]').addEventListener('click', function(){
+      var n = count(x.id);
+      if (X.length === 1){ toast('Serve almeno una sezione'); return; }
+      if (n){ toast('Questa sezione ha ' + n + ' film: spostali prima in un\'altra sezione (scheda del film → Categoria)'); return; }
+      X.splice(+r.dataset.i, 1); renderSecs(); dirty();
+    });
+  });
+  sortable(box, '.crow.sec[data-i]', function(a, b){ move(X, a, b); renderSecs(); dirty(); });
+}
+$('#addSec').addEventListener('click', function(){ S.sections.push({id: 'sec-' + stamp(), en: '', it: ''}); renderSecs(); dirty(); var r = $$('#secs .crow[data-i]'); r[r.length - 1].querySelector('input').focus(); });
+
 /* ---------- CONTACTS ---------- */
 function renderContacts(){
   $('#contactsPad').innerHTML = '<div style="display:flex;flex-direction:column;gap:10px"><h2 class="h2">Contatti</h2><p class="lead">I dati in fondo al sito e il modulo per scriverti.</p></div>' +
@@ -860,13 +898,13 @@ function renderSettings(){
 }
 
 /* ---------- views ---------- */
-var TITLES = {projects: 'Film', sphere: 'Pellicola', texts: 'Testi e chi sono', credits: 'Collaborazioni', contacts: 'Contatti', settings: 'Cronologia e accesso'};
+var TITLES = {projects: 'Film', sections: 'Sezioni', sphere: 'Pellicola', texts: 'Testi e chi sono', credits: 'Collaborazioni', contacts: 'Contatti', settings: 'Cronologia e accesso'};
 function show(v){
   view = v; $$('.nav button').forEach(function(b){ b.setAttribute('aria-current', b.dataset.view === v ? 'page' : 'false'); });
   $$('.view').forEach(function(s){ s.hidden = s.id !== 'v-' + v; }); $('#viewTitle').textContent = TITLES[v];
   if (v === 'projects'){ renderList(); renderEditor(); }
-  if (v === 'sphere') renderSphere(); if (v === 'texts') renderTexts(); if (v === 'credits') renderCreds(); if (v === 'contacts') renderContacts(); if (v === 'settings') renderSettings();
-  $('#nFeat').textContent = S.strip.featured.length; $('#nCred').textContent = S.site.credits.length;
+  if (v === 'sections') renderSecs(); if (v === 'sphere') renderSphere(); if (v === 'texts') renderTexts(); if (v === 'credits') renderCreds(); if (v === 'contacts') renderContacts(); if (v === 'settings') renderSettings();
+  $('#nFeat').textContent = S.strip.featured.length; $('#nSec').textContent = S.sections.length; $('#nCred').textContent = S.site.credits.length;
   try { localStorage.setItem('mp-view', v); } catch (e) {}
 }
 $$('.nav button').forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.view); }); });
@@ -907,6 +945,7 @@ function validate(){
   var bad = [];
   S.projects.forEach(function(p){ if (p.visible !== false){ if (!p.name) bad.push('Un progetto visibile non ha il titolo'); if (!p.cover) bad.push((p.name || 'Un progetto') + ' non ha la copertina'); } });
   if (!S.strip.featured.filter(function(id){ var p = P(id); return p && p.visible !== false; }).length) bad.push('La pellicola non ha film visibili');
+  S.sections.forEach(function(x){ if (!(x.it || '').trim() && !(x.en || '').trim()) bad.push('Una sezione non ha il nome (vai in Sezioni)'); });
   return bad;
 }
 $('#publish').addEventListener('click', function(){
