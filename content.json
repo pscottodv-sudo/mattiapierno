@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-09T16:20:29.641Z",
+ "updated": "2026-11-09T17:13:42.909Z",
  "projects": [
   {
    "id": "out-of-place",
@@ -119,7 +119,7 @@
     "en": "",
     "it": ""
    },
-   "film": "https://www-ccv.adobe.io/v1/player/ccv/NrI_j-3t6SS/embed?bgcolor=%23000000&lazyLoading=true&api_key=BehancePro2View",
+   "film": "https://youtu.be/7NpzDEZbDzs",
    "duration": "0:56",
    "credits": [
     {
@@ -146,47 +146,87 @@
    "visible": true,
    "images": [
     {
-     "w": 1456,
-     "h": 818,
-     "src": "foto/punk-ture/cover.jpg",
-     "m": "foto/punk-ture/cover.jpg",
-     "g": "img/g/punk-ture/cover.jpg",
-     "t": "img/t/punk-ture/cover.jpg"
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/punk-ture/mw9i5uu5qud5.jpg",
+     "m": "foto/punk-ture/mw9i5uu5qud5.jpg",
+     "g": "img/g/punk-ture/mw9i5uu5qud5.jpg",
+     "t": "img/t/punk-ture/mw9i5uu5qud5.jpg"
     },
     {
-     "w": 1456,
-     "h": 818,
-     "src": "foto/punk-ture/f1.jpg",
-     "m": "foto/punk-ture/f1.jpg",
-     "g": "img/g/punk-ture/f1.jpg",
-     "t": "img/t/punk-ture/f1.jpg"
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/punk-ture/mw9ikugvpb57.jpg",
+     "m": "foto/punk-ture/mw9ikugvpb57.jpg",
+     "g": "img/g/punk-ture/mw9ikugvpb57.jpg",
+     "t": "img/t/punk-ture/mw9ikugvpb57.jpg"
     },
     {
-     "w": 1456,
-     "h": 818,
-     "src": "foto/punk-ture/f2.jpg",
-     "m": "foto/punk-ture/f2.jpg",
-     "g": "img/g/punk-ture/f2.jpg",
-     "t": "img/t/punk-ture/f2.jpg"
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/punk-ture/mw9ikx2chr0t.jpg",
+     "m": "foto/punk-ture/mw9ikx2chr0t.jpg",
+     "g": "img/g/punk-ture/mw9ikx2chr0t.jpg",
+     "t": "img/t/punk-ture/mw9ikx2chr0t.jpg"
     },
     {
-     "w": 1456,
-     "h": 818,
-     "src": "foto/punk-ture/f3.jpg",
-     "m": "foto/punk-ture/f3.jpg",
-     "g": "img/g/punk-ture/f3.jpg",
-     "t": "img/t/punk-ture/f3.jpg"
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/punk-ture/mw9il4z34lbu.jpg",
+     "m": "foto/punk-ture/mw9il4z34lbu.jpg",
+     "g": "img/g/punk-ture/mw9il4z34lbu.jpg",
+     "t": "img/t/punk-ture/mw9il4z34lbu.jpg"
     },
     {
-     "w": 1456,
-     "h": 818,
-     "src": "foto/punk-ture/f4.jpg",
-     "m": "foto/punk-ture/f4.jpg",
-     "g": "img/g/punk-ture/f4.jpg",
-     "t": "img/t/punk-ture/f4.jpg"
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/punk-ture/mw9il8850q7j.jpg",
+     "m": "foto/punk-ture/mw9il8850q7j.jpg",
+     "g": "img/g/punk-ture/mw9il8850q7j.jpg",
+     "t": "img/t/punk-ture/mw9il8850q7j.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/punk-ture/mw9ilb7xwd99.jpg",
+     "m": "foto/punk-ture/mw9ilb7xwd99.jpg",
+     "g": "img/g/punk-ture/mw9ilb7xwd99.jpg",
+     "t": "img/t/punk-ture/mw9ilb7xwd99.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/punk-ture/mw9ile5aiiwh.jpg",
+     "m": "foto/punk-ture/mw9ile5aiiwh.jpg",
+     "g": "img/g/punk-ture/mw9ile5aiiwh.jpg",
+     "t": "img/t/punk-ture/mw9ile5aiiwh.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/punk-ture/mw9imniqa670.jpg",
+     "m": "foto/punk-ture/mw9imniqa670.jpg",
+     "g": "img/g/punk-ture/mw9imniqa670.jpg",
+     "t": "img/t/punk-ture/mw9imniqa670.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/punk-ture/mw9ipy99kaga.jpg",
+     "m": "foto/punk-ture/mw9ipy99kaga.jpg",
+     "g": "img/g/punk-ture/mw9ipy99kaga.jpg",
+     "t": "img/t/punk-ture/mw9ipy99kaga.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/punk-ture/mw9iqbq61ui3.jpg",
+     "m": "foto/punk-ture/mw9iqbq61ui3.jpg",
+     "g": "img/g/punk-ture/mw9iqbq61ui3.jpg",
+     "t": "img/t/punk-ture/mw9iqbq61ui3.jpg"
     }
    ],
-   "cover": "foto/punk-ture/f2.jpg"
+   "cover": "foto/punk-ture/mw9ile5aiiwh.jpg"
   },
   {
    "id": "kreole",
@@ -208,7 +248,7 @@
     "en": "",
     "it": ""
    },
-   "film": "https://www-ccv.adobe.io/v1/player/ccv/GKNEmfcBi__/embed?bgcolor=%23000000&lazyLoading=true&api_key=BehancePro2View",
+   "film": "",
    "duration": "1:00",
    "credits": [
     {
