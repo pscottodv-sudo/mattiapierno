@@ -8,6 +8,15 @@
 <meta property="og:title" content="Mattia Pierno">
 <meta property="og:description" content="Director · Filmmaker · Naples">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://mattiapierno.it/">
+<meta property="og:image" content="https://mattiapierno.it/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Mattia Pierno">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://mattiapierno.it/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Mattia Pierno", "url": "https://mattiapierno.it/", "image": "https://mattiapierno.it/foto/site/about.jpg", "jobTitle": "Director and filmmaker", "birthDate": "2004", "homeLocation": {"@type": "Place", "name": "Naples, Italy"}, "email": "mailto:info@mattiapierno.it", "sameAs": ["https://www.instagram.com/mattiapierno/", "https://www.youtube.com/channel/UCtaydfWddkptCziPCE2vkRg"]}</script>
 <meta name="theme-color" content="#0B0B0B">
 <style>
 /* Layout: one continuous dark ground for the whole site; the films are the only colour.
@@ -597,6 +606,13 @@ html.scrolled .nav::before{opacity:1}
     $('#credits').innerHTML = (S.credits || []).map(function(c){
       return '<div class="c-row"><span class="c-name display" data-split>' + esc0(c.name) + '</span><span class="mono"' + A(c.what) + '>' + esc0((c.what || {}).en) + '</span><span class="mono">' + esc0(names[c.proj] || '') + '</span><span class="mono c-year">' + esc0(c.year) + '</span></div>'; }).join('');
     $('.collab').hidden = !(S.credits || []).length;
+    /* search engines: the films on the page as structured data, kept in step with content.json */
+    if (!PREVIEW){
+      var ld = document.getElementById('ldFilms') || document.head.appendChild(Object.assign(document.createElement('script'), {type: 'application/ld+json', id: 'ldFilms'}));
+      ld.textContent = JSON.stringify({'@context': 'https://schema.org', '@type': 'ItemList', name: 'Films by Mattia Pierno', itemListElement: DATA.map(function(d, i){
+        return {'@type': 'ListItem', position: i + 1, item: {'@type': 'CreativeWork', name: d.name, genre: GROUP_EN[d.group] || d.group, description: d.desc || d.short || '', image: new URL(d.cover, location.href).href, director: {'@type': 'Person', name: 'Mattia Pierno'}}};
+      })});
+    }
     setT($('#contactTitle'), S.contactTitle);
     $('#email').textContent = S.email || '';
     var ig = (S.instagram || '').replace(/^@/, '');
