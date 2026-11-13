@@ -1,7 +1,132 @@
 {
  "version": 1,
- "updated": "2026-11-09T20:25:28.386Z",
+ "updated": "2026-11-13T16:04:38.692Z",
  "projects": [
+  {
+   "id": "pmwf5ukwiyu5q",
+   "group": "sec-mwf5u8sfqbjp",
+   "name": "CRISTO SANTO",
+   "visible": true,
+   "year": {
+    "en": "2026",
+    "it": "2026"
+   },
+   "tag": {
+    "en": "Videoclip · Naples",
+    "it": "Videoclip · Napoli"
+   },
+   "short": {
+    "en": "",
+    "it": ""
+   },
+   "desc": {
+    "en": "",
+    "it": ""
+   },
+   "cover": "foto/pmwf5ukwiyu5q/mwf62m73cq2w.jpg",
+   "images": [
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf5ukwiyu5q/mwf62m73cq2w.jpg",
+     "m": "foto/pmwf5ukwiyu5q/mwf62m73cq2w.jpg",
+     "g": "img/g/pmwf5ukwiyu5q/mwf62m73cq2w.jpg",
+     "t": "img/t/pmwf5ukwiyu5q/mwf62m73cq2w.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf5ukwiyu5q/mwf62mcztt7b.jpg",
+     "m": "foto/pmwf5ukwiyu5q/mwf62mcztt7b.jpg",
+     "g": "img/g/pmwf5ukwiyu5q/mwf62mcztt7b.jpg",
+     "t": "img/t/pmwf5ukwiyu5q/mwf62mcztt7b.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf5ukwiyu5q/mwf62mfsuhpv.jpg",
+     "m": "foto/pmwf5ukwiyu5q/mwf62mfsuhpv.jpg",
+     "g": "img/g/pmwf5ukwiyu5q/mwf62mfsuhpv.jpg",
+     "t": "img/t/pmwf5ukwiyu5q/mwf62mfsuhpv.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf5ukwiyu5q/mwf62wbpzmlm.jpg",
+     "m": "foto/pmwf5ukwiyu5q/mwf62wbpzmlm.jpg",
+     "g": "img/g/pmwf5ukwiyu5q/mwf62wbpzmlm.jpg",
+     "t": "img/t/pmwf5ukwiyu5q/mwf62wbpzmlm.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf5ukwiyu5q/mwf62yajsltt.jpg",
+     "m": "foto/pmwf5ukwiyu5q/mwf62yajsltt.jpg",
+     "g": "img/g/pmwf5ukwiyu5q/mwf62yajsltt.jpg",
+     "t": "img/t/pmwf5ukwiyu5q/mwf62yajsltt.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf5ukwiyu5q/mwf62yov7ex8.jpg",
+     "m": "foto/pmwf5ukwiyu5q/mwf62yov7ex8.jpg",
+     "g": "img/g/pmwf5ukwiyu5q/mwf62yov7ex8.jpg",
+     "t": "img/t/pmwf5ukwiyu5q/mwf62yov7ex8.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf5ukwiyu5q/mwf62z2ycsax.jpg",
+     "m": "foto/pmwf5ukwiyu5q/mwf62z2ycsax.jpg",
+     "g": "img/g/pmwf5ukwiyu5q/mwf62z2ycsax.jpg",
+     "t": "img/t/pmwf5ukwiyu5q/mwf62z2ycsax.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf5ukwiyu5q/mwf62znfjqui.jpg",
+     "m": "foto/pmwf5ukwiyu5q/mwf62znfjqui.jpg",
+     "g": "img/g/pmwf5ukwiyu5q/mwf62znfjqui.jpg",
+     "t": "img/t/pmwf5ukwiyu5q/mwf62znfjqui.jpg"
+    }
+   ],
+   "film": "https://www.youtube.com/watch?v=mR9X9DScxLM",
+   "duration": "2:57",
+   "credits": [
+    {
+     "role": "Directed by",
+     "name": "Mattia Pierno"
+    },
+    {
+     "role": "Director of photography",
+     "name": "Paolo Scotto di Vettimo"
+    },
+    {
+     "role": "Music",
+     "name": "Adriano Romano"
+    },
+    {
+     "role": "Production",
+     "name": "UNMADE"
+    },
+    {
+     "role": "Assistant Production ",
+     "name": "Claudia Sodano"
+    },
+    {
+     "role": "Stylist",
+     "name": "Antonio Borromeo, Roberto Battista"
+    },
+    {
+     "role": "Editor",
+     "name": "Mattia Pierno, Paolo Scotto di Vettimo"
+    },
+    {
+     "role": "Colorist",
+     "name": "Paolo Scotto di Vettimo"
+    }
+   ]
+  },
   {
    "id": "out-of-place",
    "group": "Fashion film",
@@ -506,7 +631,8 @@
    "punk-ture",
    "kreole",
    "l-ultima-nota",
-   "anema-mediterranea"
+   "anema-mediterranea",
+   "pmwf5ukwiyu5q"
   ],
   "tiles": [],
   "motion": {
@@ -653,6 +779,11 @@
    "id": "Cinema",
    "en": "Cinema",
    "it": "Cinema"
+  },
+  {
+   "id": "sec-mwf5u8sfqbjp",
+   "en": "Videoclip",
+   "it": "Videoclip"
   }
  ]
 }
