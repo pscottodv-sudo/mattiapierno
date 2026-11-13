@@ -68,6 +68,15 @@ html.is-intro .hero-meta span{visibility:hidden}
 html.js-motion .nav{opacity:0;visibility:hidden}
 @media (max-width:480px){.nav-name{font-size:12px;letter-spacing:.01em}.nav-links{gap:12px}.nav-links a,.nav-links .nav-btn{font-size:13px}}
 html.proj-open .nav,html.arch-open .nav{visibility:hidden}
+/* language switch: always visible, at the right of the bar; in the archive and project pages it sits beside Close */
+.lang-fab{position:fixed;z-index:62;top:calc(16px + env(safe-area-inset-top, 0px));right:max(16px, env(safe-area-inset-right, 0px));height:41px;min-width:41px;padding:0 13px;
+  border:0;border-radius:999px;background:var(--ink);color:var(--ground);cursor:pointer;font-family:var(--hn,inherit);font-weight:300;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.lang-fab:hover{background:var(--ground);color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+@media (min-width:768px){.lang-fab{right:max(40px, env(safe-area-inset-right, 0px))}}
+.nav{padding-right:calc(max(16px, env(safe-area-inset-right, 0px)) + 49px)}
+@media (min-width:768px){.nav{padding-right:calc(max(40px, env(safe-area-inset-right, 0px)) + 49px)}}
+.proj-close{min-width:104px}
+html.proj-open .lang-fab,html.arch-open .lang-fab{top:calc(12px + env(safe-area-inset-top, 0px));height:44px;right:calc(max(16px, env(safe-area-inset-right, 0px)) + 112px)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;height:100svh;min-height:520px}
@@ -241,24 +250,6 @@ html.no-gl .work-list{display:block}
 .proj-next .display{font-size:clamp(44px,8vw,130px)}
 .proj-next:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 
-/* ---------- language screen ---------- */
-.lang-gate{position:fixed;inset:0;z-index:100;display:none;background:var(--ground);
-  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:calc(24px + env(safe-area-inset-top, 0px)) calc(24px + env(safe-area-inset-bottom, 0px))}
-html.has-js:not(.lang-set) .lang-gate{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(32px,6vh,64px);text-align:center}
-html.has-js:not(.lang-set),html.has-js:not(.lang-set) body{overflow:hidden}
-.lang-eyebrow{margin:0;color:var(--muted)}
-.lang-title{margin:0;font-size:clamp(34px,7vw,112px);display:flex;flex-direction:column;align-items:center;gap:.1em;text-align:center;max-width:100%}
-.lang-line{display:block}
-.lang-alt{color:var(--muted)}
-.lang-btns{display:grid;grid-template-columns:repeat(2,minmax(0,220px));gap:14px;justify-content:center;width:100%}
-.lang-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:88px;padding:18px 20px;margin:0;
-  border:1px solid var(--hair);border-radius:18px;background:transparent;color:var(--ink);cursor:pointer;text-align:center;line-height:1;
-  transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease)}
-.lang-btn .lang-name{display:block;font-family:var(--display);font-weight:700;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.01em;line-height:1}
-.lang-btn .lang-code{display:block;color:var(--muted);line-height:1;transition:color .35s var(--ease)}
-.lang-btn:hover,.lang-btn:focus-visible{background:var(--ink);color:var(--ground);border-color:var(--ink)}
-.lang-btn:hover .lang-code,.lang-btn:focus-visible .lang-code{color:var(--ground)}
-@media (max-width:480px){.lang-btns{grid-template-columns:minmax(0,280px)}.lang-btn{min-height:84px}}
 .lang-toggle{min-width:24px}
 @media (max-width:420px){.nl-work{display:none}}
 
@@ -334,8 +325,15 @@ body{font-weight:700;letter-spacing:-.01em}
 .about-statement,.c-val,.crd dd{font-weight:700;letter-spacing:-.03em}
 .about-body p,.proj-desc,.cap-desc,.field input,.field textarea{font-weight:700}
 .btn-view,.copy-btn,.proj-close,.arch-tab,.nav-links a,.nav-btn,.cursor span{font-family:var(--hn);font-weight:300;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-.lang-btn .lang-name{font-family:var(--hn);font-weight:300}
 .hero-meta span{border-radius:999px;padding:4px 12px}
+.nav-name{text-transform:none;font-size:17px;letter-spacing:-.03em}
+.tc{font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:.04em;color:var(--on-photo);mix-blend-mode:difference;display:flex;align-items:center;gap:8px}
+.tc::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;animation:rec 1.6s steps(1) infinite}
+@keyframes rec{50%{opacity:0}}
+@media (max-width:700px){.tc{display:none}}
+@media (prefers-reduced-motion:reduce){.tc::before{animation:none}}
+.a-img,.wl-img,.about-photo,.vp-embed,.vp-slot,.g,.a-soon,.field textarea{border-radius:var(--r)}
+.a-img,.wl-img,.about-photo,.vp-embed,.g{overflow:hidden;-webkit-mask-image:-webkit-radial-gradient(white,black)}
 /* opening: small white line drawings cut in on black, one after another; the last is a clapperboard
    that claps shut in stop-motion steps, then the name stands over a ghost of it and the film starts */
 .intro-stack.lineart{left:0;top:0;right:0;bottom:0;width:auto;height:auto;transform:none;z-index:4;pointer-events:none}
@@ -350,7 +348,7 @@ body{font-weight:700;letter-spacing:-.01em}
 .boot-err{.boot-err{position:fixed;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em}
 </style>
 <script>
-(function(){var r=document.documentElement;r.classList.add('has-js');
+(function(){var r=document.documentElement;r.classList.add('has-js','lang-set');
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('js-motion','is-intro');
     setTimeout(function(){if(!window.__ready){r.classList.remove('js-motion','is-intro')}},9000);}
 })();
@@ -358,14 +356,6 @@ body{font-weight:700;letter-spacing:-.01em}
 </head>
 <body>
 
-<div class="lang-gate" id="langGate" role="dialog" aria-modal="true" aria-labelledby="langTitle">
-  <p class="mono lang-eyebrow">Mattia Pierno</p>
-  <h2 class="lang-title display" id="langTitle"><span class="lang-line">Choose your language</span><span class="lang-line lang-alt">Scegli la lingua</span></h2>
-  <div class="lang-btns">
-    <button class="lang-btn" type="button" data-lang="it"><span class="lang-name">Italiano</span></button>
-    <button class="lang-btn" type="button" data-lang="en"><span class="lang-name">English</span></button>
-  </div>
-</div>
 
 <div class="progress" aria-hidden="true"></div>
 <div class="cursor" aria-hidden="true"><span data-en="Watch" data-it="Guarda">Watch</span></div>
@@ -377,9 +367,10 @@ body{font-weight:700;letter-spacing:-.01em}
     <a href="#work" class="nl-work" data-en="Work" data-it="Lavori">Work</a>
     <button class="nav-btn" type="button" data-archive data-en="Films" data-it="Film">Films</button>
     <a href="#contact" data-en="Contact" data-it="Contatti">Contact</a>
-    <button class="nav-btn lang-toggle" id="langToggle" type="button" aria-label="Passa all'italiano">IT</button>
   </nav>
 </header>
+
+<button class="lang-fab" id="langToggle" type="button" aria-label="Passa all'italiano">IT</button>
 
 <main>
   <section class="hero" id="top" aria-label="Opening">
@@ -833,19 +824,9 @@ body{font-weight:700;letter-spacing:-.01em}
   var langChosen, langReady = new Promise(function(r){ langChosen = r; });
   /* without the opening animation the video simply starts once the language is chosen */
   langReady.then(function(){ if (!motion && window.__heroPlay) window.__heroPlay(); });
-  var gate = $('#langGate');
-  var guess = (navigator.language || '').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
-  setTimeout(function(){ var b = $('.lang-btn[data-lang="' + guess + '"]', gate); if (b) b.focus({preventScroll: true}); }, 60);
-  if (PREVIEW && window.__preview && window.__preview.lang) setTimeout(function(){ var b = $('.lang-btn[data-lang="' + window.__preview.lang + '"]', gate); if (b) b.click(); }, 30);
-  $$('.lang-btn', gate).forEach(function(b){
-    b.addEventListener('click', function(){
-      if (root.classList.contains('lang-set')) return;
-      applyLang(b.getAttribute('data-lang'));
-      var done = function(){ root.classList.add('lang-set'); langChosen(); };
-      if (motion) gsap.to(gate, {clipPath: 'inset(0% 0% 100% 0%)', duration: 0.9, ease: 'expo.inOut', onComplete: done});
-      else done();
-    });
-  });
+  /* no language screen: the site opens in English; the IT/EN switch stays on screen */
+  langChosen();
+  setTimeout(function(){ if (PREVIEW && window.__preview && window.__preview.lang && window.__preview.lang !== LANG) applyLang(window.__preview.lang); }, 30);
   $('#langToggle').addEventListener('click', function(){
     applyLang(LANG === 'it' ? 'en' : 'it');
     if (hooks.refresh) hooks.refresh();
@@ -855,7 +836,6 @@ body{font-weight:700;letter-spacing:-.01em}
 
   /* ================= motion ================= */
   window.__goto = function(sel){ if (lenis) lenis.scrollTo(sel, {immediate: true, force: true}); else { var el = document.querySelector(sel); if (el) el.scrollIntoView(); } };
-  gsap.from('.lang-eyebrow, .lang-line, .lang-btn', {y: 34, autoAlpha: 0, stagger: 0.08, duration: 1.1, ease: 'expo.out', delay: 0.1});
   hooks.refresh = function(){ ScrollTrigger.refresh(); };
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ignoreMobileResize: true});
