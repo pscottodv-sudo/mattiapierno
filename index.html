@@ -333,6 +333,24 @@ body{font-weight:700;letter-spacing:-.01em}
 .lang-fab{background:none;color:var(--on-photo);mix-blend-mode:difference;font-size:15px;letter-spacing:-.01em;text-transform:none;padding:0 4px;min-width:0;height:auto;line-height:1;top:calc(15px + env(safe-area-inset-top, 0px));padding-block:9px}
 .lang-fab:hover{background:none;color:var(--on-photo);box-shadow:none;text-decoration:underline;text-underline-offset:4px}
 html.proj-open .lang-fab,html.arch-open .lang-fab{mix-blend-mode:normal;color:var(--ink)}
+/* buttons in bold too; bar text always plain white (no blend), with a soft shadow so it reads on bright frames */
+.btn-view,.copy-btn,.proj-close,.arch-tab,.arch-tab span,.nav-links a,.nav-btn,.lang-fab,.cursor span,.lang-btn .lang-name{font-weight:700}
+.nav-name,.nav-links,.lang-fab,.hero-meta,.tc{mix-blend-mode:normal;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+/* once the page has scrolled past the opening, a soft dark fade sits behind the bar so the white text never sits on busy content */
+.nav::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(100% + 28px);background:linear-gradient(rgba(11,11,11,.82),rgba(11,11,11,.5) 60%,rgba(11,11,11,0));opacity:0;transition:opacity .4s var(--ease);pointer-events:none;z-index:-1}
+html.scrolled .nav::before{opacity:1}
+/* phones: bigger tap areas, tighter bar */
+@media (max-width:700px){
+  .nav{padding-top:calc(8px + env(safe-area-inset-top, 0px));padding-bottom:8px;gap:10px}
+  .nav-name{font-size:16px;padding-block:12px}
+  .nav-links{gap:18px}
+  .nav-links a,.nav-btn{font-size:15px;padding-block:12px;line-height:1}
+  .lang-fab{top:calc(8px + env(safe-area-inset-top, 0px));padding:12px 6px;font-size:15px}
+  html.proj-open .lang-fab,html.arch-open .lang-fab{top:calc(12px + env(safe-area-inset-top, 0px));height:44px;padding-block:0}
+  .footer a{display:inline-block;padding-block:12px}
+  .btn-view,.copy-btn{min-height:44px}
+}
+@media (max-width:360px){.nav-name{font-size:14px}.nav-links{gap:14px}.nav-links a,.nav-btn,.lang-fab{font-size:14px}}
 .nav-name{text-transform:none;font-size:17px;letter-spacing:-.03em}
 .tc{font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:.04em;color:var(--on-photo);mix-blend-mode:difference;display:flex;align-items:center;gap:8px}
 .tc::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;animation:rec 1.6s steps(1) infinite}
@@ -731,6 +749,8 @@ html.proj-open .lang-fab,html.arch-open .lang-fab{mix-blend-mode:normal;color:va
       return false;
     });
   }
+  var markScrolled = function(){ root.classList.toggle('scrolled', (window.scrollY || 0) > innerHeight * 0.5); };
+  addEventListener('scroll', markScrolled, {passive: true}); markScrolled();
   proj.addEventListener('scroll', function(){ if (motion && pending.length && checkRaf == null) checkRaf = requestAnimationFrame(checkGallery); }, {passive: true});
   function revealGallery(){
     if (!motion) return;
