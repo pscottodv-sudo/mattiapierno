@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-13T16:07:05.302Z",
+ "updated": "2026-11-13T18:11:06.990Z",
  "projects": [
   {
    "id": "pmwf5ukwiyu5q",
@@ -263,6 +263,99 @@
     }
    ],
    "cover": "foto/out-of-place/mw9nkahsihu2.jpg"
+  },
+  {
+   "id": "pmwf9ojdw5955",
+   "group": "Fashion film",
+   "name": "FW26",
+   "visible": true,
+   "year": {
+    "en": "2026",
+    "it": "2026"
+   },
+   "tag": {
+    "en": "Fashion film · Milan",
+    "it": "Fashion film · Milano"
+   },
+   "short": {
+    "en": "",
+    "it": ""
+   },
+   "desc": {
+    "en": "",
+    "it": ""
+   },
+   "cover": "foto/pmwf9ojdw5955/mwfabsn86zti.jpg",
+   "images": [
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf9ojdw5955/mwfabsghhmik.jpg",
+     "m": "foto/pmwf9ojdw5955/mwfabsghhmik.jpg",
+     "g": "img/g/pmwf9ojdw5955/mwfabsghhmik.jpg",
+     "t": "img/t/pmwf9ojdw5955/mwfabsghhmik.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf9ojdw5955/mwfabsn86zti.jpg",
+     "m": "foto/pmwf9ojdw5955/mwfabsn86zti.jpg",
+     "g": "img/g/pmwf9ojdw5955/mwfabsn86zti.jpg",
+     "t": "img/t/pmwf9ojdw5955/mwfabsn86zti.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf9ojdw5955/mwfalmr2vo4g.jpg",
+     "m": "foto/pmwf9ojdw5955/mwfalmr2vo4g.jpg",
+     "g": "img/g/pmwf9ojdw5955/mwfalmr2vo4g.jpg",
+     "t": "img/t/pmwf9ojdw5955/mwfalmr2vo4g.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf9ojdw5955/mwfalmwn6q3o.jpg",
+     "m": "foto/pmwf9ojdw5955/mwfalmwn6q3o.jpg",
+     "g": "img/g/pmwf9ojdw5955/mwfalmwn6q3o.jpg",
+     "t": "img/t/pmwf9ojdw5955/mwfalmwn6q3o.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf9ojdw5955/mwfalmygq9co.jpg",
+     "m": "foto/pmwf9ojdw5955/mwfalmygq9co.jpg",
+     "g": "img/g/pmwf9ojdw5955/mwfalmygq9co.jpg",
+     "t": "img/t/pmwf9ojdw5955/mwfalmygq9co.jpg"
+    },
+    {
+     "w": 3840,
+     "h": 2160,
+     "src": "foto/pmwf9ojdw5955/mwfalojjsppi.jpg",
+     "m": "foto/pmwf9ojdw5955/mwfalojjsppi.jpg",
+     "g": "img/g/pmwf9ojdw5955/mwfalojjsppi.jpg",
+     "t": "img/t/pmwf9ojdw5955/mwfalojjsppi.jpg"
+    }
+   ],
+   "film": "https://youtu.be/ZpGJ-DmAD84",
+   "duration": "1:59",
+   "credits": [
+    {
+     "role": "Directed by",
+     "name": "Andrea Monsurrò"
+    },
+    {
+     "role": "Director of photography",
+     "name": "Paolo Scotto di Vettimo"
+    },
+    {
+     "role": "Editor",
+     "name": "Mattia Pierno, Andrea Monsurrò"
+    },
+    {
+     "role": "Colorist",
+     "name": "Paolo Scotto di Vettimo"
+    }
+   ]
   },
   {
    "id": "punk-ture",
@@ -629,6 +722,7 @@
   "featured": [
    "out-of-place",
    "punk-ture",
+   "pmwf9ojdw5955",
    "l-ultima-nota",
    "pmwf5ukwiyu5q"
   ],
