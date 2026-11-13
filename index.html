@@ -73,8 +73,8 @@ html.proj-open .nav,html.arch-open .nav{visibility:hidden}
   border:0;border-radius:999px;background:var(--ink);color:var(--ground);cursor:pointer;font-family:var(--hn,inherit);font-weight:300;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
 .lang-fab:hover{background:var(--ground);color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
 @media (min-width:768px){.lang-fab{right:max(40px, env(safe-area-inset-right, 0px))}}
-.nav{padding-right:calc(max(16px, env(safe-area-inset-right, 0px)) + 49px)}
-@media (min-width:768px){.nav{padding-right:calc(max(40px, env(safe-area-inset-right, 0px)) + 49px)}}
+.nav{padding-right:calc(max(16px, env(safe-area-inset-right, 0px)) + 54px)}
+@media (min-width:768px){.nav{padding-right:calc(max(40px, env(safe-area-inset-right, 0px)) + 54px)}}
 .proj-close{min-width:104px}
 html.proj-open .lang-fab,html.arch-open .lang-fab{top:calc(12px + env(safe-area-inset-top, 0px));height:44px;right:calc(max(16px, env(safe-area-inset-right, 0px)) + 112px)}
 
@@ -325,7 +325,14 @@ body{font-weight:700;letter-spacing:-.01em}
 .about-statement,.c-val,.crd dd{font-weight:700;letter-spacing:-.03em}
 .about-body p,.proj-desc,.cap-desc,.field input,.field textarea{font-weight:700}
 .btn-view,.copy-btn,.proj-close,.arch-tab,.nav-links a,.nav-btn,.cursor span{font-family:var(--hn);font-weight:300;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-.hero-meta span{border-radius:999px;padding:4px 12px}
+/* bar and hero labels: plain text like the name, no pills */
+.hero-meta{color:var(--on-photo);mix-blend-mode:difference;line-height:1.5}
+.hero-meta span{background:none;padding:0;border-radius:0;font-family:var(--hn);font-weight:700;font-size:15px;letter-spacing:-.02em;text-transform:none}
+.nav-links{background:none;color:var(--on-photo);padding:0;border-radius:0;mix-blend-mode:difference}
+.nav-links a,.nav-btn{font-size:15px;letter-spacing:-.01em;text-transform:none}
+.lang-fab{background:none;color:var(--on-photo);mix-blend-mode:difference;font-size:15px;letter-spacing:-.01em;text-transform:none;padding:0 4px;min-width:0;height:auto;line-height:1;top:calc(15px + env(safe-area-inset-top, 0px));padding-block:9px}
+.lang-fab:hover{background:none;color:var(--on-photo);box-shadow:none;text-decoration:underline;text-underline-offset:4px}
+html.proj-open .lang-fab,html.arch-open .lang-fab{mix-blend-mode:normal;color:var(--ink)}
 .nav-name{text-transform:none;font-size:17px;letter-spacing:-.03em}
 .tc{font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:.04em;color:var(--on-photo);mix-blend-mode:difference;display:flex;align-items:center;gap:8px}
 .tc::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;animation:rec 1.6s steps(1) infinite}
