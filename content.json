@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-14T16:35:52.140Z",
+ "updated": "2026-11-14T16:36:28.823Z",
  "projects": [
   {
    "id": "pmwf5ukwiyu5q",
@@ -824,7 +824,7 @@
      "it": "Fashion film · Design per la Moda"
     },
     "proj": "punk-ture",
-    "year": ""
+    "year": "2026"
    },
    {
     "name": "Università Vanvitelli",
@@ -833,7 +833,7 @@
      "it": "Fashion film · Design per la Moda"
     },
     "proj": "kreole",
-    "year": ""
+    "year": "2026"
    },
    {
     "name": "PICSEL",
@@ -842,7 +842,7 @@
      "it": "Produzione cortometraggio"
     },
     "proj": "l-ultima-nota",
-    "year": ""
+    "year": "2025"
    }
   ],
   "marquee": {
